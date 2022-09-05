@@ -10,6 +10,12 @@ public class UIManager : MonoBehaviour
     private int effectController = 0;
     [SerializeField] Text coin_text;
 
+    // ------Silider------ //
+    [SerializeField] GameObject Player;
+    [SerializeField] GameObject FinýsLine;
+    [SerializeField] Image SliderImage;
+    // ------Slider------ //
+
     // ------DeathScreen------ //
     [SerializeField] GameObject Deathscreen;
     [SerializeField] GameObject comlated;
@@ -61,7 +67,9 @@ public class UIManager : MonoBehaviour
         if (RadialShineBool == true)
         {
             RadialShine.GetComponent<RectTransform>().Rotate(new Vector3(0, 0, -10 * Time.deltaTime));
-        }       
+        }
+
+        SliderImage.fillAmount = (Player.transform.position.z) / (FinýsLine.transform.position.z);
     }
 
     public void FirstTouchDedication()
